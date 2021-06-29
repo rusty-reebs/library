@@ -6,10 +6,36 @@
         <title>Library</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        
+        <div class="title">
+        <h1>My Library</h1>
+        </div>
+        <div class="buttoncontainer">
+        <button class="addbook" type=button onclick="openForm();">Add Book</button>
+        </div>
+        <div class="loginpopup">
+            <div class="formpopup" id="popupform">
+                <form class="formcontainer">
+                    <label for="title"><strong>Title</strong></label>
+                    <input type="text" id="title" placeholder="Title" name="title" required>
+                    <label for="author"><strong>Author</strong></label>
+                    <input type="text" id="author" placeholder="Author" name="author" required>
+                    <label for="pages"><strong>Number of Pages</strong></label>
+                    <input type="text" id="pages" placeholder="Pages" name="pages" required>
+                    <label for="status"><strong>Status</strong></label>
+                    <input type="radio" id="status" name="status" required>
+                    <button type="submit" class="button" onclick="submitForm();">Submit</button>
+                    <button type="button" class="button cancel" onclick="closeForm();">Cancel</button>
+                </form>
+            </div>
+        </div>
+        <div class="spacer"></div>
+        <div id="library">
+            <p>My books go here</p>
+
+        </div>
         <script src="script.js" async defer></script>
     </body>
 </html>

@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+.buttoncontainer {
+    display: flex;
+    justify-content: center;
+}
+
+.addbook {
+    border: none;
+    border-radius: 5px;
+    background-color: #1c87c9;
+    color: white;
+    padding: 14px 20px;
+    cursor: pointer;
+    position: fixed;
+}
+
+.loginpopup {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.formpopup {
+    display: none;
+    position: fixed;
+    left: 45%;
+    top: 5%;
+    transform: translate(-50%, 5%);
+    border: 3px solid black;
+
+}
+
+.formcontainer {
+    max-width: 300px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.formcontainer input[type=text] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 20px 0;
+    border: none;
+    background: #eee;
+}
+
+.formcontainer .button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #8ebf42;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px;
+    opacity: 0.8;
+
+}
+
+.formcontainer .cancel {
+    background-color: #cc0000;
+
+}
+
+.spacer {
+    height: 100px;
+    
+}
