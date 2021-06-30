@@ -24,8 +24,11 @@
                     <input type="text" id="author" placeholder="Author" name="author" required>
                     <label for="pages"><strong>Number of Pages</strong></label>
                     <input type="text" id="pages" placeholder="Pages" name="pages" required>
-                    <label for="status"><strong>Status</strong></label>
-                    <input type="radio" id="status" name="status" required>
+                    <label for="status"><strong>Status</strong></label><br>
+                    <input type="radio" class="radiobutton" id="read" name="status" value="Read" checked required>
+                    <label for="read">Read</label>
+                    <input type="radio" class="radiobutton" id="notread" name="status" value="Not Read" required>
+                    <label for="notread">Not Read</label>
                     <button type="submit" class="button" onclick="submitForm();">Submit</button>
                     <button type="button" class="button cancel" onclick="closeForm();">Cancel</button>
                 </form>
@@ -33,7 +36,38 @@
         </div>
         <div class="spacer"></div>
         <div id="library">
-            <p>My books go here</p>
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Pages</th>
+                            <th>Status</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablebody">
+                        <tr>
+                        <td>TitleData</td>
+                        <td>AuthorData</td>
+                        <td>PagesData</td>
+                        <td>StatusData</td>
+                        <td><button>Change Status</button></td>
+                        <td><button>Edit</button></td>
+                        <td><button>Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>Storm of Swords</td>
+                            <td>George R.R. Martin</td>
+                            <td>543</td>
+                            <td>Read</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
         </div>
         <script src="script.js" async defer></script>

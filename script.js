@@ -1,5 +1,18 @@
 
-let myLibrary = [];
+let myLibrary = [
+    {
+        title: "The Hobbit",
+        author: "J.R.R. Tolkien",
+        pages: "295",
+        read: false
+    },
+    {
+        title: "A Game of Thrones",
+        author: "George R.R. Martin",
+        pages: "670",
+        read: true
+    }
+];
 
 // Object constructor
 function Book(title, author, pages, read) {
@@ -12,32 +25,62 @@ function Book(title, author, pages, read) {
     } 
 }
 
-const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", "295", "not read yet")
-const theHungerGames = new Book("The Hunger Games", "Suzanne Collins", "400", "read")
-const aGameOfThrones = new Book("A Game of Thrones", "George R.R. Martin", "800", "read")
-
-
-// Inital library function
-function initialLibrary() {
-    myLibrary.push(theHobbit);
-    myLibrary.push(theHungerGames);
-    myLibrary.push(aGameOfThrones);
-    for (let i = 0; i <= 2; i++) {
-        displayBook(i);
-    }
-}
+// DOM Objects
+const form = document.querySelector("form");    
 const bookList = document.getElementById("library");
+const table = document.querySelector(".table");
+// const tableBody = table.querySelector(".tbody");
+const tableBody = document.getElementById("tablebody");
+const newBook = document.getElementById("title");
+const newAuthor = document.getElementById("author");
+const newPages = document.getElementById("pages");
 
-// Loops through array and displays each book on page
-function displayBook(arrayNum) {
-    let bookDiv = document.createElement("div");
-    bookDiv.textContent = myLibrary[arrayNum].info();
-    bookList.appendChild(bookDiv);
-
+function addBookToLibrary() {
+    let title = newBook.value;
+    let author = newAuthor.value;
+    let pages = newPages.value;
+    let read = getStatus();
+    let newestBook = new Book(title, author, pages, read);
+    myLibrary.push(newestBook);
 }
 
-initialLibrary();
-// myLibrary.forEach((thing) => console.log(thing));
+// Populate local storage
+
+function addtoStorage() {
+    localStorage.setItem("books", JSON.stringify(myLibrary));
+}
+
+function getFromStorage() {
+    myLibrary = JSON.parse(localStorage.getItem("books"));
+}
+
+function getStatus() {
+    if(document.getElementById("read").value == "Read") return true;
+    else return false;
+}
+
+function createStatusCell(book) {
+    let statusCell = document.createElement("td");
+    if(document.getElementById("read").value == "Read") {
+    statusCell.textContent = "Read"
+};
+}
+
+// Loops through array and builds table
+
+function buildTable() {
+    // table.textContent = "";
+    myLibrary.forEach((book, index) => {
+        let newRow = document.createElement("tr");
+        Object.keys(book).forEach(prop => {
+            let newData = document.createElement("td");
+            newData.textContent = book[prop];
+            newRow.appendChild(newData);
+        })
+        tableBody.appendChild(newRow);
+    })
+}
+
 
 
     
@@ -48,20 +91,29 @@ function openForm() {
 function closeForm() {
     document.getElementById("popupform").style.display = "none";
 }
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+});
+
+// function submitForm() {
+//     // event.preventDefault();
     
+//     if (newStatus[0].checked == true) {
+//         entry = new Book(newBook, newAuthor, newPages, newStatus);
+//     }
+//     else {entry = new Book(newBook, newAuthor, newPages, newStatus);
+//     };
     
-function submitForm() {
-    event.preventDefault();
-    let newBook = document.getElementById("title").value;
-    let newAuthor = document.getElementById("author").value;
-    let newPages = document.getElementById("pages").value;
-    let entry = new Book(newBook, newAuthor, newPages);
-    myLibrary.push(entry);
-    console.log(newBook);
-    console.log(newAuthor);
-    console.log(newPages);
-    // alert(newBook);
-        
-        
-    }
+//     myLibrary.push(entry);
+//     localStorage.setItem("books", JSON.stringify(myLibrary));
+//     console.log(newBook);
+//     console.log(newAuthor);
+//     console.log(newPages);
+//     console.log(newStatus);
+//     // alert(newBook);
+          
+//     }
+
+
     

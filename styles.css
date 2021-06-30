@@ -7,6 +7,35 @@
     justify-content: center;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
+
+.table {
+    width: 1000px;
+
+}
+
+table {
+    width: 100%;
+    background-color: #2b95f8;
+    color: black;
+    border-spacing: 0;
+    border-bottom: 5px solid black;
+}
+
+th {
+    padding: 10px 10px;
+
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+tbody {
+    background-color: lightblue;
+    color: black;
+
+}
 .buttoncontainer {
     display: flex;
     justify-content: center;
@@ -50,6 +79,12 @@
     margin: 5px 0 20px 0;
     border: none;
     background: #eee;
+}
+
+.formcontainer .radiobutton {
+    margin-top: 10px;
+    margin-bottom: 20px;
+
 }
 
 .formcontainer .button {
