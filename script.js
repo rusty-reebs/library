@@ -25,7 +25,7 @@ function Book(title, author, pages, read) {
     } 
 }
 
-// DOM Objects
+// DOM Objects to be manipulated
 const form = document.querySelector("form");    
 const bookList = document.getElementById("library");
 const table = document.querySelector(".table");
@@ -35,14 +35,6 @@ const newBook = document.getElementById("title");
 const newAuthor = document.getElementById("author");
 const newPages = document.getElementById("pages");
 
-function addBookToLibrary() {
-    let title = newBook.value;
-    let author = newAuthor.value;
-    let pages = newPages.value;
-    let read = getStatus();
-    let newestBook = new Book(title, author, pages, read);
-    myLibrary.push(newestBook);
-}
 
 // Populate local storage
 
@@ -72,7 +64,7 @@ function buildTable() {
     // table.textContent = "";
     myLibrary.forEach((book, index) => {
         let newRow = document.createElement("tr");
-        Object.keys(book).forEach(prop => {
+        Object.keys(book).forEach(prop => {     // ? What is this?
             let newData = document.createElement("td");
             newData.textContent = book[prop];
             newRow.appendChild(newData);
@@ -80,8 +72,6 @@ function buildTable() {
         tableBody.appendChild(newRow);
     })
 }
-
-
 
     
 // Pop up form functions
@@ -92,28 +82,26 @@ function closeForm() {
     document.getElementById("popupform").style.display = "none";
 }
 
-form.addEventListener("submit", function (e) {
+form.addEventListener("submit", function (e) { // stops refresh
     e.preventDefault();
 });
 
-// function submitForm() {
-//     // event.preventDefault();
-    
-//     if (newStatus[0].checked == true) {
-//         entry = new Book(newBook, newAuthor, newPages, newStatus);
-//     }
-//     else {entry = new Book(newBook, newAuthor, newPages, newStatus);
-//     };
-    
-//     myLibrary.push(entry);
-//     localStorage.setItem("books", JSON.stringify(myLibrary));
-//     console.log(newBook);
-//     console.log(newAuthor);
-//     console.log(newPages);
-//     console.log(newStatus);
-//     // alert(newBook);
+function submitForm() {
+    // if (newStatus[0].checked == true) {
+    //     entry = new Book(newBook, newAuthor, newPages, newStatus);
+    // }
+    // else {entry = new Book(newBook, newAuthor, newPages, newStatus);
+    // };
+    entry = new Book(newBook.value, newAuthor.value, newPages.value);
+    myLibrary.push(entry);
+    // localStorage.setItem("books", JSON.stringify(myLibrary));
+    console.log(newBook.value);
+    console.log(newAuthor.value);
+    console.log(newPages.value);
+    closeForm();
+    // console.log(newStatus);
           
-//     }
+    }
 
 
     
