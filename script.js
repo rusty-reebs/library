@@ -20,9 +20,9 @@ function Book(title, author, pages, read) {
     this.author = author
     this.pages = pages
     this.read = read
-    this.info = function() {
-        return title + " by " + author + ", " + pages + " pages, " + read 
-    } 
+    // this.info = function() {
+    //     return title + " by " + author + ", " + pages + " pages, " + read 
+    // } 
 }
 
 // DOM Objects to be manipulated
@@ -80,6 +80,9 @@ function openForm() {
 }
 function closeForm() {
     document.getElementById("popupform").style.display = "none";
+    newBook.value = "";
+    newAuthor.value = "";
+    newPages.value = "";
 }
 
 form.addEventListener("submit", function (e) { // stops refresh
@@ -98,7 +101,9 @@ function submitForm() {
     console.log(newBook.value);
     console.log(newAuthor.value);
     console.log(newPages.value);
-    closeForm();
+    buildTable();
+    setTimeout(() => closeForm(), 300);
+    
     // console.log(newStatus);
           
     }
