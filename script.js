@@ -1,3 +1,5 @@
+// TODO add cells, delete cells
+// TODO remove book function
 
 let myLibrary = [
     {
@@ -58,12 +60,17 @@ function createStatusCell(book) {
 };
 }
 
+function deleteBook () {
+
+}
+
 // Loops through array and builds table
 
 function buildTable() {
     // table.textContent = "";
     myLibrary.forEach((book, index) => {
         let newRow = document.createElement("tr");
+        newRow.dataset.value = index; // assigns value=index, to be used for removing books
         Object.keys(book).forEach(prop => {     // ? What is this?
             let newData = document.createElement("td");
             newData.textContent = book[prop];
@@ -97,6 +104,7 @@ function submitForm() {
     // };
     entry = new Book(newBook.value, newAuthor.value, newPages.value);
     myLibrary.push(entry);
+
     // localStorage.setItem("books", JSON.stringify(myLibrary));
     console.log(newBook.value);
     console.log(newAuthor.value);
