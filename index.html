@@ -25,9 +25,9 @@
                     <label for="pages"><strong>Number of Pages</strong></label>
                     <input type="text" id="pages" placeholder="Pages" name="pages" required>
                     <label for="status"><strong>Status</strong></label><br>
-                    <input type="radio" class="radiobutton" id="read" name="status" value="Read" checked required>
+                    <input type="radio" class="radiobutton" id="read" name="status" value="TRUE" checked required>
                     <label for="read">Read</label>
-                    <input type="radio" class="radiobutton" id="notread" name="status" value="Not Read" required>
+                    <input type="radio" class="radiobutton" id="notread" name="status" value="FALSE" required>
                     <label for="notread">Not Read</label>
                     <button type="submit" class="button" onclick="submitForm();">Submit</button>
                     <button type="button" class="button cancel" onclick="closeForm();">Cancel</button>
@@ -56,7 +56,7 @@
                         <td>PagesData</td>
                         <td>StatusData</td>
                         <td><button class="bookbutton">Change Status</button></td>
-                        <td><button class="bookbutton">Edit</button></td>
+                        <!-- <td><button class="bookbutton">Edit</button></td> -->
                         <td><button class="bookbutton">Delete</button></td>
                         </tr>
                         <tr>
