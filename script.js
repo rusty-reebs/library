@@ -1,5 +1,5 @@
-// TODO add cells, delete cells
-// TODO remove book function
+// TODO change status
+// TODO form cancel button, reset
 
 let myLibrary = [
     {
@@ -22,9 +22,6 @@ function Book(title, author, pages, read) {
     this.author = author
     this.pages = pages
     this.read = read
-    // this.info = function() {
-    //     return title + " by " + author + ", " + pages + " pages, " + read 
-    // } 
 }
 
 // DOM Objects to be manipulated
@@ -35,9 +32,6 @@ const tableBody = document.getElementById("tablebody");
 const newBook = document.getElementById("title");
 const newAuthor = document.getElementById("author");
 const newPages = document.getElementById("pages");
-const newStatus = document.getElementById("read");
-
-// if radio button read is checked, then make true, else be false
 
 
 // Populate local storage
@@ -52,17 +46,6 @@ function getFromStorage() {
 function getStatus() {
     if(document.getElementById("read").checked == true) return true;
     else return false;
-}
-
-function newStatusCell(book) {
-    let statusCell = document.createElement("td");
-    if(document.getElementById("read").value == true) {
-        statusCell.textContent = "Read"
-        }
-    else {
-        statusCell.textContent = "Not Read"
-    };
-
 }
 
 function createStatusButton(book) {
@@ -93,19 +76,18 @@ function buildTable() {
     tableBody.textContent = ""; // clears everything before build
     myLibrary.forEach((book, index) => {
         let newRow = document.createElement("tr");
-        newRow.dataset.value = index; // assigns value=index, to be used for removing books
+        newRow.dataset.value = index; // assigns value=index, to be used for removing books, unnecessary?
         Object.keys(book).forEach(prop => {     // ? What is this?
             let newData = document.createElement("td");
             newData.textContent = book[prop];
+            if (prop == "read") {
+                newData.textContent = book[prop] ? "Read" : "Not Read"; // ? What is this?
+            }
             newRow.appendChild(newData);
-            // function to add Change Status button
-            // createStatusButton(book);
-            // deleteBookButton(index);
         });
         newRow.appendChild(createStatusButton(book));
         newRow.appendChild(deleteBookButton(index));
         tableBody.appendChild(newRow);
-        // newStatusCell(book);
     });
 }
 
@@ -126,29 +108,21 @@ form.addEventListener("submit", function (e) { // stops refresh
 });
 
 function submitForm() {
-    // if (newStatus[0].checked == true) {
-    //     entry = new Book(newBook, newAuthor, newPages, newStatus);
-    // }
-    // else {entry = new Book(newBook, newAuthor, newPages, newStatus);
-    // };
-    if (newStatus.checked == true) {
-        newStatus.value == true  // actually uses HTML value "TRUE"
-    }
-    else newStatus.value = false;
-    entry = new Book(newBook.value, newAuthor.value, newPages.value, newStatus.value);
+    let newStatus = getStatus();
+    entry = new Book(newBook.value, newAuthor.value, newPages.value, newStatus);
     myLibrary.push(entry);
 
     // localStorage.setItem("books", JSON.stringify(myLibrary));
     console.log(newBook.value);
     console.log(newAuthor.value);
     console.log(newPages.value);
-    console.log(newStatus.value);
+    console.log(newStatus);
     buildTable();
     setTimeout(() => closeForm(), 300);
-    
-    // console.log(newStatus);
-          
     }
+
+buildTable();
+
 
 
     
