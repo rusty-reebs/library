@@ -7,8 +7,8 @@ Practicing how to work with objects in JavaScript:
 - object literal
 - object constructor
 
-Date started: June 28, 2021
-Date completed: July 15, 2021
+Date started: June 28, 2021.
+Date completed: July 15, 2021.
 
 ## TIL:
 - how to build tables in HTML, CSS, and JS
