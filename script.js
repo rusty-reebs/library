@@ -1,18 +1,10 @@
-// TODO change status
-// TODO form cancel button, reset
 
 let myLibrary = [
     {
-        title: "The Hobbit",
-        author: "J.R.R. Tolkien",
-        pages: "295",
+        title: "Harry Potter and the Prisoner of JavaScript",
+        author: "J.K. Rowling",
+        pages: "469",
         read: false
-    },
-    {
-        title: "A Game of Thrones",
-        author: "George R.R. Martin",
-        pages: "670",
-        read: true
     }
 ];
 
@@ -27,7 +19,6 @@ function Book(title, author, pages, read) {
 // DOM Objects to be manipulated
 const form = document.querySelector("form");    
 const bookList = document.getElementById("library");
-const table = document.querySelector(".table");
 const tableBody = document.getElementById("tablebody");
 const newBook = document.getElementById("title");
 const newAuthor = document.getElementById("author");
@@ -43,20 +34,27 @@ function getFromStorage() {
     myLibrary = JSON.parse(localStorage.getItem("books"));
 }
 
+// Returns read status as true/false value
 function getStatus() {
     if(document.getElementById("read").checked == true) return true;
     else return false;
 }
 
+// Creates Change Status button and changes object property when clicked
 function createStatusButton(book) {
     let statusBtnCell = document.createElement("td");
     let statusBtn = document.createElement("button");
     statusBtn.className = "bookbutton";
     statusBtn.textContent = "Change Status";
+    statusBtn.addEventListener("click", () => {
+        book.read = !book.read; // changes true/false of read prop
+        buildTable();
+    })
     statusBtnCell.appendChild(statusBtn);
     return statusBtnCell;
 }
 
+// Creates Delete button and removes index when clicked
 function deleteBookButton(index) {
     let delBtnCell = document.createElement("td");
     let delBtn = document.createElement("button");
@@ -71,17 +69,15 @@ function deleteBookButton(index) {
 }
 
 // Loops through array and builds table
-
 function buildTable() {
     tableBody.textContent = ""; // clears everything before build
-    myLibrary.forEach((book, index) => {
+    myLibrary.forEach((book, index) => {  // uses the value and the index of the current element
         let newRow = document.createElement("tr");
-        newRow.dataset.value = index; // assigns value=index, to be used for removing books, unnecessary?
-        Object.keys(book).forEach(prop => {     // ? What is this?
+        Object.keys(book).forEach(prop => {   // returns an array of property names and initiates callback function for each property
             let newData = document.createElement("td");
-            newData.textContent = book[prop];
-            if (prop == "read") {
-                newData.textContent = book[prop] ? "Read" : "Not Read"; // ? What is this?
+            newData.textContent = book[prop]; // text equals the value of the property
+            if (prop == "read") {  // if the property is "read", then do this
+                newData.textContent = book[prop] ? "Read" : "Not Read"; // if "read" property is true, then text is "Read", else "Not Read"
             }
             newRow.appendChild(newData);
         });
@@ -89,37 +85,40 @@ function buildTable() {
         newRow.appendChild(deleteBookButton(index));
         tableBody.appendChild(newRow);
     });
+    addtoStorage();
 }
 
-    
 // Pop up form functions
 function openForm() {
-    document.getElementById("popupform").style.display = "block";
+    document.getElementById("popupform").style.display = "block"; // makes form appear
 }
 function closeForm() {
-    document.getElementById("popupform").style.display = "none";
-    newBook.value = "";
+    document.getElementById("popupform").style.display = "none"; // makes form disappear
+    newBook.value = ""; // clears fields
     newAuthor.value = "";
     newPages.value = "";
+    document.getElementById("read").checked = true; // resets radio button
 }
 
 form.addEventListener("submit", function (e) { // stops refresh
     e.preventDefault();
 });
 
+// Uses values from form to create new Book object and push to array
 function submitForm() {
-    let newStatus = getStatus();
+    let newStatus = getStatus(); // sets variable to true or false
     entry = new Book(newBook.value, newAuthor.value, newPages.value, newStatus);
     myLibrary.push(entry);
-
-    // localStorage.setItem("books", JSON.stringify(myLibrary));
-    console.log(newBook.value);
-    console.log(newAuthor.value);
-    console.log(newPages.value);
-    console.log(newStatus);
     buildTable();
     setTimeout(() => closeForm(), 300);
     }
+
+// If local storage does not exist, create it, otherwise get books from local storage
+if (!localStorage.getItem("books")) {
+    addtoStorage();
+} else {
+    getFromStorage();
+}
 
 buildTable();
 

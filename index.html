@@ -15,7 +15,6 @@
         <div class="buttoncontainer">
         <button class="addbook" type=button onclick="openForm();">Add Book</button>
         </div>
-        <div class="loginpopup">
             <div class="formpopup" id="popupform">
                 <form class="formcontainer">
                     <label for="title"><strong>Title</strong></label>
@@ -25,15 +24,14 @@
                     <label for="pages"><strong>Number of Pages</strong></label>
                     <input type="text" id="pages" placeholder="Pages" name="pages" required>
                     <label for="status"><strong>Status</strong></label><br>
-                    <input type="radio" class="radiobutton" id="read" name="status" value="TRUE" checked required>
+                    <input type="radio" class="radiobutton" id="read" name="status" value="true" checked required>
                     <label for="read">Read</label>
-                    <input type="radio" class="radiobutton" id="notread" name="status" value="FALSE" required>
+                    <input type="radio" class="radiobutton" id="notread" name="status" value="false" required>
                     <label for="notread">Not Read</label>
                     <button type="submit" class="button" onclick="submitForm();">Submit</button>
                     <button type="button" class="button cancel" onclick="closeForm();">Cancel</button>
                 </form>
             </div>
-        </div>
         <div class="spacer"></div>
         <div id="library">
             <div class="table">
@@ -46,29 +44,12 @@
                             <th class="statusheader">Status</th>
                             <th class="buttonheader"></th>
                             <th class="buttonheader"></th>
-                            <!-- <th></th> -->
                         </tr>
                     </thead>
                     <tbody id="tablebody">
-                        <!-- <tr>
-                        <td>TitleData</td>
-                        <td>AuthorData</td>
-                        <td>PagesData</td>
-                        <td>StatusData</td>
-                        <td><button class="bookbutton">Change Status</button></td>
-                        <td><button class="bookbutton">Edit</button></td>
-                        <td><button class="bookbutton">Delete</button></td>
-                        </tr>
-                        <tr>
-                            <td>Storm of Swords</td>
-                            <td>George R.R. Martin</td>
-                            <td>543</td>
-                            <td>Read</td>
-                        </tr> -->
                     </tbody>
                 </table>
             </div>
-
         </div>
         <script src="script.js" async defer></script>
     </body>

@@ -2,8 +2,6 @@
     box-sizing: border-box;
 }
 
-
-
 .title {
     display: flex;
     justify-content: center;
@@ -14,7 +12,6 @@
     display: flex;
     justify-content: center;
     width: auto;
-
 }
 
 table {
@@ -36,12 +33,15 @@ table {
 .pagesheader {
     width: 10%;
 }
+
 .statusheader {
     width: 15%;
 }
+
 .buttonheader {
     width: 12.5%;
 }
+
 th {
     padding: 10px 10px;
 
@@ -55,12 +55,13 @@ td {
 tbody {
     background-color: lightblue;
     color: black;
-
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 thead {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
 .buttoncontainer {
     display: flex;
     justify-content: center;
@@ -71,6 +72,7 @@ thead {
     border-radius: 5px;
     background-color: #1c87c9;
     color: white;
+    font-size: 17px;
     padding: 14px 20px;
     cursor: pointer;
     position: fixed;
@@ -83,14 +85,7 @@ thead {
     color: white;
     padding: 3px 10px;
     cursor: pointer;
-
 }
-
-/* .loginpopup {
-    position: relative;
-    text-align: center;
-    width: 100%;
-} */
 
 .formpopup {
     display: none;
@@ -101,7 +96,6 @@ thead {
     text-align: center; /* aligns the labels */
     border: 3px solid black;
     border-radius: 3px;
-
 }
 
 .formcontainer {
@@ -121,7 +115,6 @@ thead {
 .formcontainer .radiobutton {
     margin-top: 10px;
     margin-bottom: 20px;
-
 }
 
 .formcontainer .button {
@@ -134,17 +127,13 @@ thead {
     width: 100%;
     margin-bottom: 15px;
     opacity: 0.8;
-
-
 }
 
 .formcontainer .cancel {
     background-color: #cc0000;
     opacity: 0.8;
-
 }
 
 .spacer {
-    height: 100px;
-    
+    height: 100px; 
 }
