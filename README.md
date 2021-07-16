@@ -1,5 +1,7 @@
 # library
-Library project for theodinproject.com
+Library project for **theodinproject.com**
+
+https://rusty-reebs.github.io/library/
 
 ## Objectives
 
