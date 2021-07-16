@@ -12,7 +12,7 @@ Practicing how to work with objects in JavaScript:
 Date started: June 28, 2021.  
 Date completed: July 15, 2021.
 
-## TIL:
+## TIL Things I Learned:
 - how to build tables in HTML, CSS, and JS
 - how to make a pop-up form in HTML and CSS
 - how to use local storage in JS
