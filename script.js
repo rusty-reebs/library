@@ -5,6 +5,24 @@ let myLibrary = [
         author: "J.K. Rowling",
         pages: "469",
         read: false
+    },
+    {
+        title: "Mrs. Frisby and the Rats of HTML",
+        author: "Robert C. O'Brien",
+        pages: "240",
+        read: true
+    },
+    {
+        title: "A Wrinkle in CSS",
+        author: "Madeleine L'Engle",
+        pages: "218",
+        read: false
+    },
+    {
+        title: "The Girl with the HTML Tattoo",
+        author: "Stieg Larsson",
+        pages: "465",
+        read: true
     }
 ];
 
