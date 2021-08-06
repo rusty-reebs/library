@@ -8,6 +8,7 @@ https://rusty-reebs.github.io/library/
 Practicing how to work with objects in JavaScript:
 - object literal
 - object constructor
+- classes
 
 Date started: June 28, 2021.  
 Date completed: July 15, 2021.
