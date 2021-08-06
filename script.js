@@ -26,13 +26,16 @@ let myLibrary = [
     }
 ];
 
-// Object constructor
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
+// Object classes
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 }
+
 
 // DOM Objects to be manipulated
 const form = document.querySelector("form");    
