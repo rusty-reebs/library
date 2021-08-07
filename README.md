@@ -11,7 +11,7 @@ Practicing how to work with objects in JavaScript:
 - classes
 
 Date started: June 28, 2021.  
-Date completed: July 15, 2021.
+Date completed: July 15, 2021.  
 Date modified: August 6, 2021.
 
 ## TIL Things I Learned:
