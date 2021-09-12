@@ -13,7 +13,7 @@
         <h1>My Library</h1>
         </div>
         <div class="buttoncontainer">
-        <button class="addbook" type=button onclick="openForm();">Add Book</button>
+        <button class="addbook" type="button" id="addbookbtn">Add Book</button>
         </div>
             <div class="formpopup" id="popupform">
                 <form class="formcontainer">
@@ -22,14 +22,15 @@
                     <label for="author"><strong>Author</strong></label>
                     <input type="text" id="author" placeholder="Author" name="author" required>
                     <label for="pages"><strong>Number of Pages</strong></label>
-                    <input type="text" id="pages" placeholder="Pages" name="pages" required>
+                    <input type="number" id="pages" placeholder="Pages" name="pages" min="1" pattern="[0-9]+" title="Must be at least one page." required>
                     <label for="status"><strong>Status</strong></label><br>
                     <input type="radio" class="radiobutton" id="read" name="status" value="true" checked required>
                     <label for="read">Read</label>
                     <input type="radio" class="radiobutton" id="notread" name="status" value="false" required>
                     <label for="notread">Not Read</label>
-                    <button type="submit" class="button" onclick="submitForm();">Submit</button>
-                    <button type="button" class="button cancel" onclick="closeForm();">Cancel</button>
+                    <button type="submit" class="button" id="submitbtn">Submit</button>
+
+                    <button type="button" class="button cancel" id="cancelbtn">Cancel</button>
                 </form>
             </div>
         <div class="spacer"></div>
