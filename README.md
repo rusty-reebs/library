@@ -12,7 +12,8 @@ Practicing how to work with objects in JavaScript:
 
 Date started: June 28, 2021.  
 Date completed: July 15, 2021.  
-Date modified: August 6, 2021.
+Date modified: August 6, 2021. => added Class syntax for Book object.
+Date modified: September 12, 2021. => added form validation.
 
 ## TIL Things I Learned:
 - how to build tables in HTML, CSS, and JS
@@ -22,3 +23,4 @@ Date modified: August 6, 2021.
 - a better understanding of how to use the array.forEach() method in JS
 - how to use the Object.keys() method in JS
 - how to use the JavaScript Class syntax for objects
+- how to use form validation
